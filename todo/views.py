@@ -31,7 +31,7 @@ class TaskDetail(UserPassesTestMixin,LoginRequiredMixin,DetailView):
             return True
         return False
 
-class TaskCreate(CreateView):
+class TaskCreate(LoginRequiredMixin,CreateView):
     model=Task
     fields=['title','details']
     success_url=reverse_lazy('profile')
